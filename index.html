@@ -4,28 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sabias Cv</title>
-    <link rel="stylesheet" href="./index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body>
-    <header>
-      <div class="name">SABI'A SANI JIDO</div>
-
+  <body class="font-sans">
+    <header class="bg-gray-800 text-white w-full p-5 sticky top-0 flex flex-col lg:flex-row justify-between items-start mb-5 animate-slideInFromTop">
+      <div class="name text-2xl font-bold mb-5 mt-2 p-2 animate-fadeIn">SABI'A SANI JIDO</div>
       <aside>
-        <ul class="fa-ul">
+        <ul class="space-y-2">
           <li>
             <i class="fa-sharp-duotone fa-solid fa-envelope">
-              <a href="mailto:sabeeajeedorh@gmail.com"
-                >sabeeajeedorh@gmail.com</a
-              >
+              <a href="mailto:sabeeajeedorh@gmail.com" class="text-white hover:bg-white hover:text-blue-500 ">sabeeajeedorh@gmail.com</a>
             </i>
           </li>
           <li>
-            <a href="tel:+2347031023432">
+            <a href="tel:+2347031023432" class="text-white hover:bg-white hover:text-blue-500">
               <i class="fa-sharp-duotone fa-solid fa-phone"></i> +2347031023432
             </a>
           </li>
@@ -34,55 +31,104 @@
           </li>
           <li>
             <i class="fa-brands fa-linkedin">
-              <a
-                href="https://www.linkedin.com/in/sabee-a-jeedorh-689141315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
-                >sabeeajeedorh</a
-              ></i
-            >
+              <a href="https://www.linkedin.com/in/sabee-a-jeedorh-689141315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white hover:bg-white hover:text-blue-500">sabeeajeedorh</a>
+            </i>
+          </li>
+          <li>
+            <a href="https://github.com/SabeeJeedorh" class="text-white hover:bg-white hover:text-blue-500"><i class="fa-brands fa-github"></i> SabeeJeedorh</a>
           </li>
         </ul>
       </aside>
     </header>
-    <section class="sect-container">
-      <div class="left-section">
-        <h1>| PROFESSIONAL SUMMARY</h1>
-        <p>
-          Highly motivated front-end developer with a strong foundation in
-          modern web technologies, including React and Tailwind CSS. Currently
-          honing skills at Alt School Africa and leveraging prior experience
-          from Federal Polytechnic Bauchi. Proficient in teamwork and
-          experienced in building dynamic, user-friendly applications with a
-          focus on accessibility and design. Passionate about solving real-world
-          problems and aspiring to lead innovative tech initiatives that make a
-          lasting impact.
-        </p>
-        <h1>| RELEVANT SKILLS</h1>
-        <h4>Technical skills</h4>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>Javascript</li>
-          <li>React (learning)</li>
-          <li>Vue js (learning)</li>
-          <li>Git</li>
-          <li>VS Code</li>
-        </ul>
-
-        <h4>Soft skills</h4>
-        <ul>
-          <li>Active listening</li>
-          <li>Adaptability</li>
-          <li>Communication</li>
-          <li>Conflict resolution</li>
-          <li>Critical thinking</li>
-          <li>Emotional intelligence</li>
-          <li>Good listener</li>
-          <li>Leadership</li>
-          <li>Teamwork</li>
-          <li>Time management</li>
-        </ul>
-        <h1 class="Certifications">Certifications</h1>
-        <ul>
+    <section class="sect-container grid grid-cols-1 md:grid-cols-2 gap-5 ml-5 animate-fadeIn">
+      <div class="left-section mr-12">
+        <div class="shadow-xl my-5 rounded-md">
+          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-user-tie"></i> PROFESSIONAL SUMMARY</h1>
+          <p class="p-4 leading-8 mb-5">
+            Highly motivated front-end developer with a strong foundation in modern web technologies, including React and Tailwind CSS. Currently honing skills at Alt School Africa and leveraging prior experience from Federal Polytechnic Bauchi. Proficient in teamwork and experienced in building dynamic, user-friendly applications with a focus on accessibility and design. Passionate about solving real-world problems and aspiring to lead innovative tech initiatives that make a lasting impact.
+          </p>
+        </div>
+        <div class="shadow-xl my-5 rounded-md">
+          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-laptop"></i> RELEVANT SKILLS</h1>
+          <h2 class="font-bold pl-3 mt-4 mb-7">Technical skills:</h2>
+          <ul class="flex p-4 flex-wrap gap-3">
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-orange-500">
+                  <i class="fa-brands text-white text-xl fa-html5"></i>
+                </div>
+                <span>HTML</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-500">
+                  <i class="fa-brands fa-css3-alt"></i>
+                </div>
+                <span>CSS</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-yellow-300">
+                  <i class="fa-brands fa-js"></i>
+                </div>
+                <span>Java Script</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-300">
+                  <i class="fa-brands fa-react"></i>
+                </div>
+                <span>React (Intermediate)</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-gray-400">
+                  <i class="fa-brands fa-vuejs"></i>
+                </div>
+                <span>Vue js (Basics)</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-black">
+                  <i class="fa-brands fa-github text-white"></i>
+                </div>
+                <span>Github</span>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
+                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-500">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <span>VS Code</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="shadow-xl my-5">
+          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn">Soft skills:</h1>
+          <ul class="list-disc p-8">
+            <li>Active listening</li>
+            <li>Adaptability</li>
+            <li>Communication</li>
+            <li>Conflict resolution</li>
+            <li>Critical thinking</li>
+            <li>Emotional intelligence</li>
+            <li>Good listener</li>
+            <li>Leadership</li>
+            <li>Teamwork</li>
+            <li>Time management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="shadow-xl my-5">
+        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-certificate"></i> Certifications</h1>
+        <ul class="list-disc p-8">
           <li>First School leaving certificate</li>
           <li>
             Financial secetary NACOSS Certificate <br />
@@ -103,9 +149,10 @@
             <br />2022-2024
           </li>
         </ul>
-
-        <h1>| Education</h1>
-        <ul>
+      </div>
+      <div class="shadow-xl my-5">
+        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-book"></i> Education</h1>
+        <ul class="list-disc p-8">
           <li>Havardth International School Bauchi(primary School)</li>
           <li>
             Alt School Africa (Front end engineering Student) <br />2024-Date
@@ -120,25 +167,30 @@
           </li>
         </ul>
       </div>
-      <div class="right-section">
-        <h1>| Experience</h1>
-        <h4>Tech fellow Wunti Al khair foundation</h4>
-        <ul>
+      <div class="right-section shadow-xl my-5 p-7">
+        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-briefcase"></i> Experience</h1>
+        <h4 class="font-bold text-xl p-5">Tech fellow Wunti Al khair foundation</h4>
+        <ul class="list-disc p-8">
           <li>Contributed to tech related projects and initiatives</li>
           <li>Collaborated with team members to achieve foundation goals</li>
-          <li>
-            Applied front end development skills to improve digital presence.
-          </li>
+          <li>Applied front end development skills to improve digital presence.</li>
         </ul>
-        <h4>Financial secetary NACOSS Federal Polytechnic Bauchi Chapter</h4>
-        <ul>
+        <h4 class="font-bold text-xl p-5">Financial secetary NACOSS Federal Polytechnic Bauchi Chapter</h4>
+        <ul class="list-disc p-8">
           <li>Managed finances and budgets</li>
           <li>Maintained accurate records</li>
           <li>Prepared financial reports</li>
         </ul>
-
-        <h1>| References</h1>
-        <p>Availabe upon request.</p>
+        <h4 class="font-bold text-xl p-5">Empower Her Initiative</h4>
+        <ul class="list-disc p-8">
+          <li>Built partnerships with organizations to support women’s empowerment programs.</li>
+          <li>Secured funding and sponsorships to grow the initiative.</li>
+          <li>Managed communication with partners and stakeholders to ensure collaboration.</li>
+        </ul>
+      </div>
+      <div class="shadow-xl my-2 p-7">
+        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn">| References</h1>
+        <p>Available upon request.</p>
       </div>
     </section>
   </body>
