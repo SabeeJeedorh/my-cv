@@ -9,189 +9,657 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom animations */
+      @keyframes slideInFromTop {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      .animate-slideInFromTop {
+        animation: slideInFromTop 0.8s ease-out;
+      }
+
+      .animate-slideInFromLeft {
+        animation: slideInFromLeft 0.8s ease-out;
+      }
+
+      .animate-slideInFromRight {
+        animation: slideInFromRight 0.8s ease-out;
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      .animate-scaleIn {
+        animation: scaleIn 0.5s ease-out;
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .animate-delay-200 {
+        animation-delay: 0.2s;
+      }
+      .animate-delay-300 {
+        animation-delay: 0.3s;
+      }
+      .animate-delay-400 {
+        animation-delay: 0.4s;
+      }
+      .animate-delay-500 {
+        animation-delay: 0.5s;
+      }
+      .animate-delay-600 {
+        animation-delay: 0.6s;
+      }
+      .animate-delay-700 {
+        animation-delay: 0.7s;
+      }
+      .animate-delay-800 {
+        animation-delay: 0.8s;
+      }
+      .animate-delay-900 {
+        animation-delay: 0.9s;
+      }
+      .animate-delay-1000 {
+        animation-delay: 1s;
+      }
+
+      .skill-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(0);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .section-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: perspective(1000px) rotateX(0deg);
+      }
+
+      .section-card:hover {
+        transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .contact-link {
+        position: relative;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .contact-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .contact-link:hover::before {
+        left: 100%;
+      }
+
+      .name-title {
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      .icon-bounce {
+        transition: transform 0.3s ease;
+      }
+
+      .icon-bounce:hover {
+        transform: scale(1.2) rotate(360deg);
+        transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .gradient-bg-2 {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .gradient-bg-3 {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .name-animation {
+        animation: fadeInUp 1s ease-out;
+      }
+    </style>
   </head>
 
-  <body class="font-sans">
-    <header class="bg-gray-800 text-white w-full p-5 sticky top-0 flex flex-col lg:flex-row justify-between items-start mb-5 animate-slideInFromTop">
-      <div class="name text-2xl font-bold mb-5 mt-2 p-2 animate-fadeIn">SABI'A SANI JIDO</div>
-      <aside>
+  <body
+    class="font-sans bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen"
+  >
+    <header
+      class="gradient-bg text-white w-full p-5 sticky top-0 flex flex-col lg:flex-row justify-between items-start mb-5 animate-slideInFromTop shadow-2xl backdrop-blur-sm z-50 transition-all duration-300"
+    >
+      <div class="name text-2xl font-bold mb-5 mt-2 p-2 animate-float">
+        <h1>SABIA SANI JIDO</h1>
+      </div>
+      <aside class="animate-slideInFromRight animate-delay-300">
         <ul class="space-y-2">
-          <li>
-            <i class="fa-sharp-duotone fa-solid fa-envelope">
-              <a href="mailto:sabeeajeedorh@gmail.com" class="text-white hover:bg-white hover:text-blue-500 ">sabeeajeedorh@gmail.com</a>
+          <li class="animate-fadeInUp animate-delay-400">
+            <i class="fa-sharp-duotone fa-solid fa-envelope icon-bounce">
+              <a
+                href="mailto:sabeeajeedorh@gmail.com"
+                class="contact-link text-white hover:bg-white hover:text-blue-500 p-2 rounded transition-all duration-300"
+                >sabeeajeedorh@gmail.com</a
+              >
             </i>
           </li>
-          <li>
-            <a href="tel:+2347031023432" class="text-white hover:bg-white hover:text-blue-500">
-              <i class="fa-sharp-duotone fa-solid fa-phone"></i> +2347031023432
+          <li class="animate-fadeInUp animate-delay-500">
+            <a
+              href="tel:+2347031023432"
+              class="contact-link text-white hover:bg-white hover:text-blue-500 p-2 rounded transition-all duration-300"
+            >
+              <i class="fa-sharp-duotone fa-solid fa-phone icon-bounce"></i>
+              +2347031023432
             </a>
           </li>
-          <li>
-            <i class="fa-solid fa-address-book"> Bauchi State, Nigeria </i>
-          </li>
-          <li>
-            <i class="fa-brands fa-linkedin">
-              <a href="https://www.linkedin.com/in/sabee-a-jeedorh-689141315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white hover:bg-white hover:text-blue-500">sabeeajeedorh</a>
+          <li class="animate-fadeInUp animate-delay-600">
+            <i class="fa-solid fa-address-book icon-bounce">
+              Bauchi State, Nigeria
             </i>
           </li>
-          <li>
-            <a href="https://github.com/SabeeJeedorh" class="text-white hover:bg-white hover:text-blue-500"><i class="fa-brands fa-github"></i> SabeeJeedorh</a>
+          <li class="animate-fadeInUp animate-delay-700">
+            <i class="fa-brands fa-linkedin icon-bounce">
+              <a
+                href="https://www.linkedin.com/in/sabee-a-jeedorh-689141315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                class="contact-link text-white hover:bg-white hover:text-blue-500 p-2 rounded transition-all duration-300"
+                >sabeeajeedorh</a
+              >
+            </i>
+          </li>
+          <li class="animate-fadeInUp animate-delay-800">
+            <a
+              href="https://github.com/SabeeJeedorh"
+              class="contact-link text-white hover:bg-white hover:text-blue-500 p-2 rounded transition-all duration-300"
+              ><i class="fa-brands fa-github icon-bounce"></i> SabeeJeedorh</a
+            >
           </li>
         </ul>
       </aside>
     </header>
-    <section class="sect-container grid grid-cols-1 md:grid-cols-2 gap-5 ml-5 animate-fadeIn">
+
+    <section class="sect-container grid grid-cols-1 md:grid-cols-2 gap-5 ml-5">
       <div class="left-section mr-12">
-        <div class="shadow-xl my-5 rounded-md">
-          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-user-tie"></i> PROFESSIONAL SUMMARY</h1>
-          <p class="p-4 leading-8 mb-5">
-            Highly motivated front-end developer with a strong foundation in modern web technologies, including React and Tailwind CSS. Currently honing skills at Alt School Africa and leveraging prior experience from Federal Polytechnic Bauchi. Proficient in teamwork and experienced in building dynamic, user-friendly applications with a focus on accessibility and design. Passionate about solving real-world problems and aspiring to lead innovative tech initiatives that make a lasting impact.
+        <div
+          class="section-card shadow-2xl my-5 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg text-white p-4">
+            <i class="fa-solid fa-user-tie mr-2"></i> PROFESSIONAL SUMMARY
+          </h1>
+          <p class="p-6 leading-8 mb-5 text-gray-700">
+            Highly motivated front-end developer with a strong foundation in
+            modern web technologies, including React and Tailwind CSS. Currently
+            honing skills at Alt School Africa and leveraging prior experience
+            from Federal Polytechnic Bauchi. Proficient in teamwork and
+            experienced in building dynamic, user-friendly applications with a
+            focus on accessibility and design. Passionate about solving
+            real-world problems and aspiring to lead innovative tech initiatives
+            that make a lasting impact.
           </p>
         </div>
-        <div class="shadow-xl my-5 rounded-md">
-          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-laptop"></i> RELEVANT SKILLS</h1>
-          <h2 class="font-bold pl-3 mt-4 mb-7">Technical skills:</h2>
-          <ul class="flex p-4 flex-wrap gap-3">
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-orange-500">
+
+        <div
+          class="section-card shadow-2xl my-5 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg-2 text-white p-4">
+            <i class="fa-solid fa-laptop mr-2"></i> RELEVANT SKILLS
+          </h1>
+          <h2 class="font-bold pl-6 mt-6 mb-4 text-gray-700">
+            Technical skills:
+          </h2>
+          <ul class="flex p-6 flex-wrap gap-4">
+            <li class="skill-card animate-fadeInUp animate-delay-200">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-orange-500">
                   <i class="fa-brands text-white text-xl fa-html5"></i>
                 </div>
-                <span>HTML</span>
+                <span class="font-medium">HTML</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-500">
-                  <i class="fa-brands fa-css3-alt"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-300">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-blue-500">
+                  <i class="fa-brands fa-css3-alt text-white text-xl"></i>
                 </div>
-                <span>CSS</span>
+                <span class="font-medium">Vanilla CSS and TailwindCss</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-yellow-300">
-                  <i class="fa-brands fa-js"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-400">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-yellow-400">
+                  <i class="fa-brands fa-js text-white text-xl"></i>
                 </div>
-                <span>Java Script</span>
+                <span class="font-medium">Java Script</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-300">
-                  <i class="fa-brands fa-react"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-500">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-blue-400">
+                  <i class="fa-brands fa-react text-white text-xl"></i>
                 </div>
-                <span>React (Intermediate)</span>
+                <span class="font-medium">React (Intermediate)</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-gray-400">
-                  <i class="fa-brands fa-vuejs"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-600">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-green-500">
+                  <i class="fa-brands fa-vuejs text-white text-xl"></i>
                 </div>
-                <span>Vue js (Basics)</span>
+                <span class="font-medium">Vue js (Basics)</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-black">
-                  <i class="fa-brands fa-github text-white"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-700">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-gray-800">
+                  <i class="fa-brands fa-github text-white text-xl"></i>
                 </div>
-                <span>Github</span>
+                <span class="font-medium">Github</span>
               </div>
             </li>
-            <li>
-              <div class="flex items-center shadow-xl my-5 border rounded-md w-full min-w-64">
-                <div class="mr-2 rounded-l-md h-full p-3 bg-blue-500">
-                  <i class="fa-solid fa-code"></i>
+            <li class="skill-card animate-fadeInUp animate-delay-800">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-blue-600">
+                  <i class="fa-solid fa-code text-white text-xl"></i>
                 </div>
-                <span>VS Code</span>
+                <span class="font-medium">VS Code</span>
+              </div>
+            </li>
+            <li class="skill-card animate-fadeInUp animate-delay-900">
+              <div
+                class="flex items-center shadow-lg border rounded-lg w-full min-w-64 overflow-hidden bg-white"
+              >
+                <div class="mr-2 rounded-l-lg h-full p-4 bg-black">
+                  <i class="fa-solid fa-n text-white text-xl"></i>
+                </div>
+                <span class="font-medium">Next Js</span>
               </div>
             </li>
           </ul>
         </div>
-        <div class="shadow-xl my-5">
-          <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn">Soft skills:</h1>
-          <ul class="list-disc p-8">
-            <li>Active listening</li>
-            <li>Adaptability</li>
-            <li>Communication</li>
-            <li>Conflict resolution</li>
-            <li>Critical thinking</li>
-            <li>Emotional intelligence</li>
-            <li>Good listener</li>
-            <li>Leadership</li>
-            <li>Teamwork</li>
-            <li>Time management</li>
+
+        <div
+          class="section-card shadow-2xl my-5 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg-3 text-white p-4">
+            Soft skills:
+          </h1>
+          <ul class="list-disc p-8 text-gray-700 space-y-2">
+            <li
+              class="animate-fadeInUp animate-delay-200 hover:text-blue-600 transition-colors duration-300"
+            >
+              Active listening
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-300 hover:text-blue-600 transition-colors duration-300"
+            >
+              Adaptability
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-400 hover:text-blue-600 transition-colors duration-300"
+            >
+              Communication
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-500 hover:text-blue-600 transition-colors duration-300"
+            >
+              Conflict resolution
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-600 hover:text-blue-600 transition-colors duration-300"
+            >
+              Critical thinking
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-700 hover:text-blue-600 transition-colors duration-300"
+            >
+              Emotional intelligence
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-800 hover:text-blue-600 transition-colors duration-300"
+            >
+              Good listener
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-900 hover:text-blue-600 transition-colors duration-300"
+            >
+              Leadership
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-1000 hover:text-blue-600 transition-colors duration-300"
+            >
+              Teamwork
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-1000 hover:text-blue-600 transition-colors duration-300"
+            >
+              Time management
+            </li>
           </ul>
         </div>
       </div>
-      <div class="shadow-xl my-5">
-        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-certificate"></i> Certifications</h1>
-        <ul class="list-disc p-8">
-          <li>First School leaving certificate</li>
-          <li>
-            Financial secetary NACOSS Certificate <br />
-            Federal polytechnic Bauchi chapter <br />2023-2024
-          </li>
-          <li>
-            Girls tech bootcamp Certificate <br />IT Central <br />
-            August-September 2024
-          </li>
-          <li>
-            National diploma in Computer science <br />
-            Federal polytechnic Bauchi <br />2018-2020
-          </li>
-          <li>CISCO Certificate</li>
-          July 2024
-          <li>
-            Higher national diploma<br />Federal Polytechnic Bauchi
-            <br />2022-2024
-          </li>
-        </ul>
-      </div>
-      <div class="shadow-xl my-5">
-        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-book"></i> Education</h1>
-        <ul class="list-disc p-8">
-          <li>Havardth International School Bauchi(primary School)</li>
-          <li>
-            Alt School Africa (Front end engineering Student) <br />2024-Date
-          </li>
-          <li>
-            Federal Polytechnic Bauchi (National Diploma) <br />
-            2018-2021.
-          </li>
-          <li>
-            Federal Polytechnic Bauchi (Higher National Diploma) <br />
-            2022-2024.
-          </li>
-        </ul>
-      </div>
-      <div class="right-section shadow-xl my-5 p-7">
-        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn"><i class="fa-solid fa-briefcase"></i> Experience</h1>
-        <h4 class="font-bold text-xl p-5">Tech fellow Wunti Al khair foundation</h4>
-        <ul class="list-disc p-8">
-          <li>Contributed to tech related projects and initiatives</li>
-          <li>Collaborated with team members to achieve foundation goals</li>
-          <li>Applied front end development skills to improve digital presence.</li>
-        </ul>
-        <h4 class="font-bold text-xl p-5">Financial secetary NACOSS Federal Polytechnic Bauchi Chapter</h4>
-        <ul class="list-disc p-8">
-          <li>Managed finances and budgets</li>
-          <li>Maintained accurate records</li>
-          <li>Prepared financial reports</li>
-        </ul>
-        <h4 class="font-bold text-xl p-5">Empower Her Initiative</h4>
-        <ul class="list-disc p-8">
-          <li>Built partnerships with organizations to support women’s empowerment programs.</li>
-          <li>Secured funding and sponsorships to grow the initiative.</li>
-          <li>Managed communication with partners and stakeholders to ensure collaboration.</li>
-        </ul>
-      </div>
-      <div class="shadow-xl my-2 p-7">
-        <h1 class="text-xl font-bold bg-gray-800 text-white p-2 animate-fadeIn">| References</h1>
-        <p>Available upon request.</p>
+
+      <div class="right-section">
+        <div
+          class="section-card shadow-2xl my-5 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg text-white p-4">
+            <i class="fa-solid fa-certificate mr-2"></i> Certifications
+          </h1>
+          <ul class="list-disc p-8 text-gray-700 space-y-3">
+            <li
+              class="animate-fadeInUp animate-delay-200 hover:text-blue-600 transition-colors duration-300"
+            >
+              First School leaving certificate
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-300 hover:text-blue-600 transition-colors duration-300"
+            >
+              Financial secetary NACOSS Certificate <br />
+              Federal polytechnic Bauchi chapter <br />2023-2024
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-400 hover:text-blue-600 transition-colors duration-300"
+            >
+              Girls tech bootcamp Certificate <br />IT Central <br />
+              August-September 2024
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-500 hover:text-blue-600 transition-colors duration-300"
+            >
+              National diploma in Computer science <br />
+              Federal polytechnic Bauchi <br />2018-2020
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-600 hover:text-blue-600 transition-colors duration-300"
+            >
+              CISCO Certificate July 2024
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-700 hover:text-blue-600 transition-colors duration-300"
+            >
+              Higher national diploma<br />Federal Polytechnic Bauchi
+              <br />2022-2024
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-800 hover:text-blue-600 transition-colors duration-300"
+            >
+              Diploma in front end engineering <br />
+              Altschool Africa<br />2024-2025
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="section-card shadow-2xl my-5 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg-2 text-white p-4">
+            <i class="fa-solid fa-book mr-2"></i> Education
+          </h1>
+          <ul class="list-disc p-8 text-gray-700 space-y-3">
+            <li
+              class="animate-fadeInUp animate-delay-200 hover:text-blue-600 transition-colors duration-300"
+            >
+              Havardth International School Bauchi(primary School)
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-300 hover:text-blue-600 transition-colors duration-300"
+            >
+              Alt School Africa (Front end engineering) <br />2024-2025
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-400 hover:text-blue-600 transition-colors duration-300"
+            >
+              Federal Polytechnic Bauchi (National Diploma) <br />
+              2018-2021.
+            </li>
+            <li
+              class="animate-fadeInUp animate-delay-500 hover:text-blue-600 transition-colors duration-300"
+            >
+              Federal Polytechnic Bauchi (Higher National Diploma) <br />
+              2022-2024.
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="section-card shadow-2xl my-5 p-7 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg-3 text-white p-4 -m-7 mb-5">
+            <i class="fa-solid fa-briefcase mr-2"></i> Experience
+          </h1>
+          <div class="space-y-6">
+            <div class="animate-fadeInUp animate-delay-200">
+              <h4 class="font-bold text-xl text-gray-800 mb-3">
+                Tech fellow Wunti Al khair foundation
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Contributed to tech related projects and initiatives
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Collaborated with team members to achieve foundation goals
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Applied front end development skills to improve digital
+                  presence.
+                </li>
+              </ul>
+            </div>
+
+            <div class="animate-fadeInUp animate-delay-400">
+              <h4 class="font-bold text-xl text-gray-800 mb-3">
+                Financial secetary NACOSS Federal Polytechnic Bauchi Chapter
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Managed finances and budgets
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Maintained accurate records
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Prepared financial reports
+                </li>
+              </ul>
+            </div>
+
+            <div class="animate-fadeInUp animate-delay-600">
+              <h4 class="font-bold text-xl text-gray-800 mb-3">
+                Empower Her Initiative
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Built partnerships with organizations to support women's
+                  empowerment programs.
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Secured funding and sponsorships to grow the initiative.
+                </li>
+                <li class="hover:text-blue-600 transition-colors duration-300">
+                  Managed communication with partners and stakeholders to ensure
+                  collaboration.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="section-card shadow-2xl my-2 p-7 rounded-lg overflow-hidden scroll-reveal"
+        >
+          <h1 class="text-xl font-bold gradient-bg text-white p-4 -m-7 mb-5">
+            References
+          </h1>
+          <p class="text-gray-700 animate-fadeInUp">Available upon request.</p>
+        </div>
       </div>
     </section>
+
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".scroll-reveal").forEach((el) => {
+        observer.observe(el);
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".section-card");
+        sections.forEach((section, index) => {
+          section.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        window.addEventListener("scroll", () => {
+          const header = document.querySelector("header");
+          if (window.scrollY > 50) {
+            header.classList.add("bg-opacity-95", "backdrop-blur-md");
+            header.style.transform = "translateY(0)";
+          } else {
+            header.classList.remove("bg-opacity-95", "backdrop-blur-md");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
